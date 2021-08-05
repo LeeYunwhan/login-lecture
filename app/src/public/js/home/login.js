@@ -1,3 +1,3 @@
 "use strict"
 
-console.log("HELLO")
+console.log("HAHA HOHO!")
