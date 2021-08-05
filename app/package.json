@@ -13,7 +13,7 @@
   },
   "devDependencies": {},
   "scripts": {
-    "start": "pm2 start ./bin/www.js",
+    "start": "pm2 start ./bin/www.js --watch",
     "stop": "pm2 delete all",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
