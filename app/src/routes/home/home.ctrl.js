@@ -1,33 +1,34 @@
 "use strict"
 
+const UserStorage = require("../../models/UserStorage.js")
+
 const show = {
     home: (req,res)=>{
-        res.render("home/index") 
+        res.render("home/index")
     },
     login: (req,res)=>{
         res.render("home/login")
     }
 }
 
-const users = {
-    id:["lee", "kim", "tamura"],
-    pw:["123", "123", "123456"]
-}
-
 const process = {
     login: (req,res)=>{
         const id = req.body.id
         const pw = req.body.pw
-
-        console.log(id, pw)
+        
+        const users = UserStorage.getUsers("id", "pw")
+        const response = {}
         if(users.id.includes(id)){
             const idx = users.id.indexOf(id)
             if(users.pw[idx] === pw){
-                return res.json({success: true, msg: "ログイン成功○"})
+                response.success = true // {success: true}
+                response.msg = "ログイン成功 ○"
+                return res.json(response)
             }
         }
-        return res.json({sucess: false, msg: "ログイン失敗X"})
-
+        response.success = false // {success: false}
+        response.msg = "ログイン失敗 X"
+        return res.json(response)
     }
 }
 
