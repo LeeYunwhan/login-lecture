@@ -16,5 +16,13 @@ function login(){
         body: JSON.stringify(req) //request bodyデータ⇒伝達
     })
     .then(res => res.json())
-    .then(json => console.log(json))
+    .then(json => {
+        if(json.success)
+            location.href = "/"
+        else
+            alert(json.msg)
+    })
+    .catch((err)=>{
+        console.error(new Error("ログイン中にエラー発生"))
+    })
 }

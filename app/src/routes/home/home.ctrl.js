@@ -26,10 +26,7 @@ const process = {
                 return res.json({success: true, msg: "ログイン成功○"})
             }
         }
-        return res.json({
-            sucess: false,
-            msg: "ログイン失敗X"
-        })
+        return res.json({sucess: false, msg: "ログイン失敗X"})
 
     }
 }
