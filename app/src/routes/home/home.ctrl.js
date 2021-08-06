@@ -2,7 +2,8 @@
 
 const User = require('../../models/User.js')
 
-const show = {
+const view = { //html.ejsレンダリング
+    //オブジェクト関数化
     home: (req,res)=>{
         res.render("home/index")
     },
@@ -20,6 +21,6 @@ const process = {
 }
 
 module.exports = { //外部ファイルとして漏出
-    show, // show:showと同じ
+    show: view, // show:showと同じ
     process
 }

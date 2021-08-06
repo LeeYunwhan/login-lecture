@@ -3,7 +3,7 @@ const express = require("express")
 const router = express.Router()
 const ctrl  = require("./home.ctrl")
 
-//ejsファイルを開く(.ejsは省略可)
+//RESTful API
 //照会
 router.get("/", ctrl.show.home)
 router.get("/login", ctrl.show.login)
