@@ -10,5 +10,6 @@ router.get("/login", ctrl.show.login)
 router.get("/register", ctrl.show.register)
 //生成
 router.post("/login", ctrl.process.login)
+router.post("/register", ctrl.process.register)
 
 module.exports = router//外部ファイルとして露出

@@ -3,9 +3,9 @@
 class UserStorage{
     //★staticを付けると、newでオブジェクトかしなくてもデータ呼び込みできる
     static #users = {
-        id:["lee", "kim", "tamura", "kill"], //オブジェクト⇒ "id": "["lee", "kim", "tamura"]"
+        id:["ylee003", "redbull", "tomato"], //オブジェクト⇒ "id": "["lee", "kim", "tamura"]"
         pw:["123", "123", "123456"],
-        age:["19","12","31"]
+        name:["イ","マイク","木村"]
     }
 
     static getUsers(...fields){ //(...変数)⇒複数パラメータを一気に配列化：func("a", "b", "c")⇒["a","b","c"]
@@ -27,6 +27,15 @@ class UserStorage{
             return newUser
         }, {})
         return userInfo
+    }
+
+    static save(userInfo){
+        const users = this.#users
+        users.id.push(userInfo.id)
+        users.name.push(userInfo.name)
+        users.pw.push(userInfo.pw)
+        console.log(users)
+        return {success: true}
     }
 }
 

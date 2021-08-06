@@ -10,11 +10,15 @@ const registerBtn = document.querySelector("#button")
 registerBtn.addEventListener("click", register)
 
 function register(){
+    if(!id.value) return alert("IDを入力してください。")
+    if(pw.value !== confirmPw.value)
+        return alert("【ログリン失敗】\nパスワードが一致しません！")
+
+
     const req = {
         id: id.value, 
         anme: name.value,
         pw: pw.value,
-        confirmPw: confirmPw.value
     }
     fetch("/register", {
         method: "POST",
@@ -29,6 +33,6 @@ function register(){
             alert(json.msg)
     })
     .catch((err)=>{
-        console.error(new Error("新規登録中にエラー発生"))
+        console.error(new Error(err))
     })
 }
