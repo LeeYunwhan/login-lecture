@@ -1,14 +1,17 @@
 "use strict"
-console.log("HAHA HOHO!")
+console.log("-------LOGIN-------")
 
 const id = document.querySelector("#id")
 const pw = document.querySelector("#pw")
-const loginBtn = document.querySelector("button")
+const loginBtn = document.querySelector("#button")
 
 loginBtn.addEventListener("click", login)
 
 function login(){
-    const req = {id: id.value, pw: pw.value}
+    const req = {
+        id: id.value, 
+        pw: pw.value
+    }
 
     fetch("/login", {
         method: "POST",
@@ -18,7 +21,7 @@ function login(){
     .then(res => res.json())
     .then(json => {
         if(json.success)
-            location.href = "/" //アドレス
+            location.href = "/" //ページ移動
         else
             alert(json.msg)
     })
