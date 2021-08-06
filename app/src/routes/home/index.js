@@ -7,6 +7,7 @@ const ctrl  = require("./home.ctrl")
 //照会
 router.get("/", ctrl.show.home)
 router.get("/login", ctrl.show.login)
+router.get("/register", ctrl.show.register)
 //生成
 router.post("/login", ctrl.process.login)
 
