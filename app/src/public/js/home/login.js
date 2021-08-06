@@ -13,12 +13,12 @@ function login(){
     fetch("/login", {
         method: "POST",
         headers: {"Content-Type": "application/json"},
-        body: JSON.stringify(req) //request bodyデータ⇒伝達
+        body: JSON.stringify(req) //req.body受け取る
     })
     .then(res => res.json())
     .then(json => {
         if(json.success)
-            location.href = "/"
+            location.href = "/" //アドレス
         else
             alert(json.msg)
     })
