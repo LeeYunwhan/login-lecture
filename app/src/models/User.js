@@ -19,10 +19,17 @@ class User{
         return {success: false, msg: "存在しないID"}
     }
 
-    register(){
+    async register(){
         const client = this.body
-        const response = UserStorage.save(client)
-        return response
+        try{
+            const response = await UserStorage.save(client)
+            return response
+        }
+        catch(err){
+            const a = {success:false, msg:err}
+            console.log(typeof a.msg)
+            return a
+        }
     }
 }
 
